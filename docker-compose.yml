@@ -1,0 +1,9 @@
+services:
+  webapp:
+    build: .
+    ports:
+      - "4200:80"
+    # depends_on:
+    #   - backendapi
+    environment:
+      - API_URL=http://backendapi:5000
