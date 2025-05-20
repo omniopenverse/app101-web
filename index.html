@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Management App</title>
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+  <h1>User Management App</h1>
+
+  <section id="user-form">
+    <h2>Add User</h2>
+    <form id="addUserForm">
+      <input type="text" id="name" placeholder="Name" required />
+      <input type="number" id="age" placeholder="Age" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <button type="submit">Add User</button>
+    </form>
+  </section>
+
+  <section id="user-select">
+    <h2>Select User</h2>
+    <select id="userDropdown">
+      <option value="">Select a user</option>
+    </select>
+    <button onclick="fetchSelectedUser()">Get User Info</button>
+    <div id="selectedUserInfo"></div>
+  </section>
+
+  <section id="user-inventory">
+    <h2>User Inventory</h2>
+    <button onclick="loadUsers()">Refresh List</button>
+    <table id="usersTable">
+      <thead><tr><th>Name</th><th>Age</th><th>Email</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <script src="static/app.js"></script>
+</body>
+</html>

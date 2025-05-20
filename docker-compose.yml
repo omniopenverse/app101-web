@@ -1,9 +1,23 @@
 services:
-  webapp:
-    build: .
-    ports:
-      - "4200:80"
-    # depends_on:
-    #   - backendapi
+  app101web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app101web
     environment:
-      - API_URL=http://backendapi:5000
+      API_URL: http://app101apipy:5000
+    hostname: app101web
+    image: app101/web:latest
+    networks:
+      app101_shared_network: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: 8080
+        protocol: tcp
+    restart: unless-stopped
+
+networks:
+  app101_shared_network:
+    name: app101_shared_network
+    external: true
