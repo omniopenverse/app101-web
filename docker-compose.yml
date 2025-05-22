@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: app101web
     environment:
-      API_URL: http://app101apipy:5000
+      API_URL: http://localhost:5000
     hostname: app101web
     image: app101/web:latest
     networks:

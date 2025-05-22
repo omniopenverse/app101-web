@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,36 +6,57 @@
   <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-  <h1>User Management App</h1>
+  <div class="container">
+    <nav class="sidebar">
+      <h2>Navigation</h2>
+      <ul>
+        <li><a href="#" onclick="showSection('user-form')">Add User</a></li>
+        <li><a href="#" onclick="showSection('user-select')">Get User</a></li>
+        <li><a href="#" onclick="showSection('user-inventory')">Get Users</a></li>
+      </ul>
+    </nav>
 
-  <section id="user-form">
-    <h2>Add User</h2>
-    <form id="addUserForm">
-      <input type="text" id="name" placeholder="Name" required />
-      <input type="number" id="age" placeholder="Age" required />
-      <input type="email" id="email" placeholder="Email" required />
-      <button type="submit">Add User</button>
-    </form>
-  </section>
+    <main class="main-content">
+      <h1>User Management App</h1>
 
-  <section id="user-select">
-    <h2>Select User</h2>
-    <select id="userDropdown">
-      <option value="">Select a user</option>
-    </select>
-    <button onclick="fetchSelectedUser()">Get User Info</button>
-    <div id="selectedUserInfo"></div>
-  </section>
+      <section id="user-form" class="card section">
+        <h2>Add User</h2>
+        <form id="addUserForm">
+          <input type="text" id="name" placeholder="Name" required />
+          <input type="number" id="age" placeholder="Age" required />
+          <input type="email" id="email" placeholder="Email" required />
+          <button type="submit">Add User</button>
+        </form>
+      </section>
 
-  <section id="user-inventory">
-    <h2>User Inventory</h2>
-    <button onclick="loadUsers()">Refresh List</button>
-    <table id="usersTable">
-      <thead><tr><th>Name</th><th>Age</th><th>Email</th></tr></thead>
-      <tbody></tbody>
-    </table>
-  </section>
+      <section id="user-select" class="card section" style="display: none;">
+        <h2>Select User</h2>
+        <select id="userDropdown">
+          <option value="">Select a user</option>
+        </select>
+        <button onclick="fetchSelectedUser()">Get User Info</button>
+        <div id="selectedUserInfo"></div>
+      </section>
 
+      <section id="user-inventory" class="card section" style="display: none;">
+        <h2>User Inventory</h2>
+        <button onclick="loadUsers()">Refresh List</button>
+        <table id="usersTable">
+          <thead><tr><th>Name</th><th>Age</th><th>Email</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(sec => {
+        sec.style.display = 'none';
+      });
+      document.getElementById(sectionId).style.display = 'block';
+    }
+  </script>
   <script src="static/app.js"></script>
 </body>
 </html>
