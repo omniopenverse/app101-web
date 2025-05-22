@@ -2,10 +2,10 @@
 body {
   font-family: Arial, sans-serif;
   margin: 2rem;
-  background-color: #f9f9f9;
+  background-color: #e7dddd;
 }
 h1, h2 {
-  color: #2e7d32;
+  color: #585d60;
 }
 form input, form button, select, button {
   margin: 0.5rem;
@@ -16,7 +16,7 @@ table {
   border-collapse: collapse;
 }
 table, th, td {
-  border: 1px solid #ccc;
+  border: 1px solid #ece3e3;
 }
 th, td {
   padding: 0.5rem;

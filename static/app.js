@@ -1,6 +1,7 @@
 
 async function loadUsers() {
-  const res = await fetch('http://127.0.0.1:5000/users');
+  const res = await fetch('http://localhost:5000/users');
+  console.log(res);
   const users = await res.json();
   const dropdown = document.getElementById('userDropdown');
   const tableBody = document.getElementById('usersTable').querySelector('tbody');
@@ -13,10 +14,9 @@ async function loadUsers() {
 }
 
 async function fetchSelectedUser() {
-  
   const name = document.getElementById('userDropdown').value;
   if (!name) return;
-  const res = await fetch(`http://127.0.0.1:5000/user/${name}`);
+  const res = await fetch(`http://localhost:5000/user/${name}`);
   const user = await res.json();
   const infoDiv = document.getElementById('selectedUserInfo');
   infoDiv.innerHTML = `<p>Name: ${user.name}, Age: ${user.age}, Email: ${user.email}</p>`;
@@ -27,10 +27,13 @@ document.getElementById('addUserForm').addEventListener('submit', async (e) => {
   const name = document.getElementById('name').value;
   const age = document.getElementById('age').value;
   const email = document.getElementById('email').value;
-  await fetch('http://127.0.0.1:5000/', {
+  await fetch('http://localhost:5000/user', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ "name": name, "age": age, "email": email })
+    headers: { 
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache'
+     },
+    body: JSON.stringify({ name, age, email })
   });
   loadUsers();
 });
