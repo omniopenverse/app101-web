@@ -1,23 +1,142 @@
+.container {
+  display: flex;
+}
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 2rem;
-  background-color: #e7dddd;
+.sidebar {
+  width: 200px;
+  background-color: #d3f9d8;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-right: 2rem;
+  height: 100vh;
+  position: sticky;
+  top: 0;
 }
-h1, h2 {
-  color: #585d60;
+
+.sidebar h2 {
+  color: #2e7d32;
 }
-form input, form button, select, button {
-  margin: 0.5rem;
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 1rem 0;
+}
+
+.sidebar a {
+  color: #78997a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sidebar a:hover {
+  /* text-decoration: underline; */
+}
+
+.main-content {
+  flex: 1;
+}
+
+.card {
+  background-color: #f0fff0;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 5px rgba(0, 128, 0, 0.1);
+}
+
+input, select, button {
+  border-radius: 0.5rem;
+  border: 1px solid #a5d6a7;
   padding: 0.5rem;
 }
+
+button {
+  background-color: #66bb6a;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.5);
+  background-color: #4caf50;
+}
+
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
 }
-table, th, td {
-  border: 1px solid #ece3e3;
+
+th {
+  background-color: #a5d6a7;
+  color: #1b5e20;
+  font-weight: bold;
+  text-align: left;
 }
-th, td {
-  padding: 0.5rem;
+
+td, th {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f1f8e9;
+}
+
+tbody tr:hover {
+  background-color: #c8e6c9;
+  transition: background-color 0.3s;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #c5cae9; /* Light indigo */
+  padding: 1.5rem 1rem;
+  border-radius: 1rem;
+  margin-right: 2rem;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+  color: #3f51b5; /* Indigo */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 1rem 0;
+}
+
+.sidebar a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #303f9f;
+  background-color: #e8eaf6;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: #c5cae9;
+  box-shadow: 0 4px 8px rgba(63, 81, 181, 0.3);
+  color: #1a237e;
 }

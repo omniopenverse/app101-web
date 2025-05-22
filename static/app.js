@@ -1,5 +1,6 @@
 
 async function loadUsers() {
+  `/users`
   const res = await fetch('http://localhost:5000/users');
   console.log(res);
   const users = await res.json();
