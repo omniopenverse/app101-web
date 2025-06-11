@@ -10,12 +10,17 @@
     <nav class="sidebar">
       <h2>Navigation</h2>
       <ul>
+<<<<<<< Updated upstream
         <li><a href="#" onclick="showSection('user-form')">Create User</a></li>
         <li><a href="#" onclick="showSection('user-select')">Get User</a></li>
         <li><a href="#" onclick="showSection('user-inventory')">Get Users</a></li>
+=======
+        <li><a href="#" onclick="showSection('user-form')">Add User</a></li>
+        <li><a href="#" onclick="showSection('user-select')">User info</a></li>
+        <li><a href="#" onclick="showSection('user-inventory')">List all users</a></li>
+>>>>>>> Stashed changes
       </ul>
     </nav>
-
     <main class="main-content">
       <h1>User Management App</h1>
 
@@ -28,7 +33,6 @@
           <button type="submit">Create User</button>
         </form>
       </section>
-
       <section id="user-select" class="card section" style="display: none;">
         <h2>Select User</h2>
         <select id="userDropdown">
@@ -37,13 +41,20 @@
         <button onclick="fetchSelectedUser()">Get User Info</button>
         <div id="selectedUserInfo"></div>
       </section>
-
       <section id="user-inventory" class="card section" style="display: none;">
         <h2>User Inventory</h2>
         <button onclick="loadUsers()">Refresh List</button>
+        <hr>
         <table id="usersTable">
-          <thead><tr><th>Name</th><th>Age</th><th>Email</th></tr></thead>
-          <tbody></tbody>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="usersTableBody"></tbody>
         </table>
       </section>
     </main>
