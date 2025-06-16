@@ -1,0 +1,23 @@
+services:
+  app101web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app101web
+    environment:
+      API_URL: http://localhost:5000/
+    hostname: app101web
+    image: app101/web:latest
+    networks:
+      app101_shared_network: null
+    ports:
+      - mode: ingress
+        target: 3000
+        published: 8080
+        protocol: tcp
+    restart: unless-stopped
+
+networks:
+  app101_shared_network:
+    name: app101_shared_network
+    external: true

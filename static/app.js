@@ -1,28 +1,4 @@
 
-// async function loadUsers() {
-//   `/users`
-//   const res = await fetch('http://localhost:5000/users');
-//   console.log(res);
-//   const users = await res.json();
-//   const dropdown = document.getElementById('userDropdown');
-//   const tableBody = document.getElementById('usersTable').querySelector('tbody');
-//   dropdown.innerHTML = '<option value="">Select a user</option>';
-//   tableBody.innerHTML = '';
-
-
-//   users.forEach(user => {
-//     dropdown.innerHTML += `<option value="${user.name}">${user.name}</option>`;
-//     tableBody.innerHTML += 
-//     `<tr>
-//     <td>${user.name}</td>
-//     <td>${user.age}</td>
-//     <td>${user.email}</td>
-//     </tr>`;
-//   });
-
-// }
-
-
 // This function loads users from the server and populates the dropdown and table
 // It handles errors gracefully and ensures the UI is updated correctly.
 async function loadUsers() {
