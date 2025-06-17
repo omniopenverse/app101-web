@@ -8,7 +8,7 @@ const UserInfo = ({ users }) => {
   const [editedUser, setEditedUser] = useState(null);
 
   // Function to handle viewing user info
-  const handleViewInfo = () => {
+  const handleViewInfo = (email) => {
     const user = users.find(u => u.id.toString() === selectedId);
     setSelectedUser(user);
     setEditMode(false);

@@ -1,7 +1,23 @@
-FROM nginx:1.28.0
+FROM node:20
 
-COPY ./index.html /usr/share/nginx/html/index.html
+# Set the working directory
+WORKDIR /app
 
-COPY ./static /usr/share/nginx/html/static
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application code
+COPY  src ./src
+COPY public ./public
+
+# Build the React application
+RUN npm run build
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Start the application
+CMD ["npm", "start"]

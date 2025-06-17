@@ -5,7 +5,8 @@ import UserInfo from "./components/userInfo";
 import UserInventory from "./components/userInventory";
 import AddUserForm from "./components/addUserForm";
 import SideBar from "./components/sideBar";
-
+import handleDelete from "./components/userInventory";
+import handleEdit from "./components/userInfo";
 
 // Main App component
 const App = () => {
@@ -36,10 +37,10 @@ const App = () => {
                     <Routes>
                         <Route path="/add-user" element={<AddUserForm addUser={addUser} />} />
                         <Route path="/user-info" element={<UserInfo users={users} />} />
-                        <Route path="/users" element={ <UserInventory users={users}
-                                    // onDelete={handleDelete} 
-                                    // onEdit={handleEdit} 
-                                    refreshUsers={refreshUsers} />} />
+                        <Route path="/users" element={ <UserInventory users={users} 
+                            onDelete={handleDelete}
+                            onEdit={handleEdit}
+                            refreshUsers={refreshUsers} />} />
                     </Routes>
                 </div>
             </div>

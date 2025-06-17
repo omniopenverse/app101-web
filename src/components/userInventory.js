@@ -11,17 +11,20 @@ const UserInventory = ({ users, onDelete, onEdit, refreshUsers }) => {
   //   }
   // };
 
-const handleDelete = (email) => {
-  if (window.confirm("Are you sure you want to delete this user?")) {
-    fetch(`http://localhost:5000/user/${email}`, {
-      method: "DELETE",
-    })
+  const handleDelete = (email) => {
+    if (window.confirm("Are you sure you want to delete this user?")) {
+      fetch(`http://localhost:5000/user/${email}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
       .then((res) => {
         if (!res.ok) throw new Error("Failed to delete user");
         return res.json();
       })
       .then(() => {
-        onDelete(email); // Update UI locally
+        // onDelete(email); // Update UI locally
         alert("User deleted successfully!");
         if (typeof refreshUsers === "function") {
           refreshUsers();
@@ -31,9 +34,8 @@ const handleDelete = (email) => {
         console.error(err);
         alert("Error deleting user.");
       });
-  }
-};
-
+    }
+  };
 
   const openEditModal = (user) => {
     setEditingUser({ ...user });
@@ -76,7 +78,7 @@ const handleDelete = (email) => {
               <td>{user.email}</td>
               <td>
                 <button className="edit-button" onClick={() => openEditModal(user)}>Edit</button>
-                <button className="delete-button" onClick={() => handleDelete(user.id)}>Delete</button>
+                <button className="delete-button" onClick={() => handleDelete(user.email)}>Delete</button>
               </td>
             </tr>
           ))}
