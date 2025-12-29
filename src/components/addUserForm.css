@@ -39,11 +39,14 @@
 }
 
 .add-user-button {
-  background-color: #ffb74d;
+  background-color: #ff9800;
   color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 6px;
   font-size: 1rem;
   cursor: pointer;
+}
+.add-user-button:hover {
+  background-color: #fb8c00;
 }

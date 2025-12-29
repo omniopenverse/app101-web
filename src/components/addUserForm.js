@@ -1,7 +1,7 @@
 import React from "react";
 import "./addUserForm.css";
 
-const AddUserForm = ({ addUser }) => {
+const AddUserForm = ({}) => {
   const [form, setForm] = React.useState({
     name: "",
     age: "",

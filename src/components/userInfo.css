@@ -26,6 +26,9 @@
   cursor: pointer;
   margin: 10px;
 }
+.user-info-button:hover {
+  background-color: #e68900;
+}
 
 .user-info-card {
   background-color: #fff3e0;

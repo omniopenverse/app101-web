@@ -13,12 +13,15 @@
 
 .refresh-button {
   margin-bottom: 15px;
-  background-color: #1976d2;
+  background-color: #ff9800;
   color: #fff;
   padding: 10px 16px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+}
+.refresh-button:hover {
+  background-color: #fb8c00;
 }
 
 .user-table {
@@ -44,13 +47,16 @@
 }
 
 .edit-button {
-  background-color: #ffb74d;
+  background-color: #ff9800;
   color: #fff;
   border: none;
   padding: 6px 12px;
   margin-right: 5px;
   border-radius: 4px;
   cursor: pointer;
+}
+.edit-button:hover {
+  background-color: #fb8c00;
 }
 
 .delete-button {
@@ -60,6 +66,9 @@
   padding: 6px 12px;
   border-radius: 4px;
   cursor: pointer;
+}
+.delete-button:hover {
+  background-color: #d32f2f;
 }
 
 /* Modal styles */
@@ -110,10 +119,13 @@
 }
 
 .modal-actions .save-button {
-  background-color: #4caf50;
+  background-color: #ff9800;
   color: #fff;
   padding: 8px 14px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+}
+.modal-actions .save-button:hover {
+  background-color: #fb8c00;
 }

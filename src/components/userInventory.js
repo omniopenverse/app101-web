@@ -1,16 +1,11 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import "./userInventory.css"; 
 
 const UserInventory = ({ users, onDelete, onEdit, refreshUsers }) => {
   const [showModal, setShowModal] = useState(false);
   const [editingUser, setEditingUser] = useState(null);
  
-  // const handleDelete = (id) => {
-  //   if (window.confirm("Are you sure you want to delete this user?")) {
-  //     onDelete(id);
-  //   }
-  // };
-
+ 
   const handleDelete = (email) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
       fetch(`http://localhost:5000/user/${email}`, {
@@ -38,7 +33,7 @@ const UserInventory = ({ users, onDelete, onEdit, refreshUsers }) => {
   };
 
   const openEditModal = (user) => {
-    setEditingUser({ ...user });
+    setEditingUser({ ...user, originalEmail: user.email });
     setShowModal(true);
   };
 
@@ -48,17 +43,39 @@ const UserInventory = ({ users, onDelete, onEdit, refreshUsers }) => {
   };
 
   const saveEdit = () => {
-    onEdit(editingUser);
-    setShowModal(false);
-    setEditingUser(null);
+    fetch(`http://localhost:5000/user/${editingUser.originalEmail}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: editingUser.name,
+        age: editingUser.age,
+        email: editingUser.email
+      })
+    })
+    .then((res) => {
+      if (!res.ok) throw new Error("Failed to update user");
+      return res.json();
+    })
+    .then(() => {
+      alert("User updated successfully!");
+      setShowModal(false);
+      setEditingUser(null);
+      if (typeof refreshUsers === "function") {
+        refreshUsers();
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      alert("Error updating user.");
+    });
   };
 
   return (
     <div className="user-inventory-container">
       <h2 className="user-inventory-header">User Inventory</h2>
-
       <button className="refresh-button" onClick={refreshUsers}>Refresh</button>
-
       <table className="user-table">
         <thead>
           <tr>
@@ -70,7 +87,7 @@ const UserInventory = ({ users, onDelete, onEdit, refreshUsers }) => {
           </tr>
         </thead>
         <tbody>
-          {users.map(user => (
+          {Array.isArray(users) && users.length > 0 ? users.map(user => (
             <tr key={user.id}>
               <td>{user.id}</td>
               <td>{user.name}</td>
@@ -81,7 +98,11 @@ const UserInventory = ({ users, onDelete, onEdit, refreshUsers }) => {
                 <button className="delete-button" onClick={() => handleDelete(user.email)}>Delete</button>
               </td>
             </tr>
-          ))}
+          )) : (
+            <tr>
+              <td colSpan="5">No users available</td>
+            </tr>
+          )}
         </tbody>
       </table>
 
