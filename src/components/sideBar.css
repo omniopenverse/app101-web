@@ -1,0 +1,31 @@
+.sidebar-container {
+  width: 200px;
+  background-color: #fff3e0;
+  border-radius: 10px;
+  padding: 20px;
+  height: 100vh;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.sidebar-link {
+  display: block;
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+
+.sidebar-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #ff9800;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-button:hover {
+  background-color: #fb8c00;
+}

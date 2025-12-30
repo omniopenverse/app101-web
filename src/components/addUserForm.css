@@ -1,0 +1,52 @@
+.add-user-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-color: #fff7f0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.add-user-card {
+  background-color: #fff3e0;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.add-user-card h2 {
+  text-align: center;
+  color: #d84315;
+}
+
+.add-user-label {
+  font-weight: 600;
+  color: #5d4037;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.add-user-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.add-user-button {
+  background-color: #ff9800;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.add-user-button:hover {
+  background-color: #fb8c00;
+}
